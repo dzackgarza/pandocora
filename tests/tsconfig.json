@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "..",
+    "baseUrl": "..", // Set baseUrl to project root
+    "paths": {
+      "@src/*": ["src/*"], // Define a path alias for src
+      "vscode": ["tests/mocks/vscode.ts"] // Map 'vscode' to our mock
+    },
+    "noEmit": true
+  },
+  "include": [
+    "**/*.ts", // All ts files in /tests directory and subdirectories
+    "../src/**/*.ts" // For type checking against actual source
+  ],
+  "exclude": []
+}
