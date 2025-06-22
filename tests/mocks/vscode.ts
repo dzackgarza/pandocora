@@ -30,7 +30,16 @@ export const window = {
 export const Uri = {
   joinPath: (...args: string[]) => args.join('/'), // Simple mock
   file: (path: string) => `file://${path}`,
-  parse: (path: string) => ({ path, fsPath: path }),
+  parse: (path: string) => ({
+    path,
+    fsPath: path,
+    scheme: 'file',
+    authority: '',
+    query: '',
+    fragment: '',
+    with: function(this: IMockUri, _change: { scheme?: string; authority?: string; path?: string; query?: string; fragment?: string; }): IMockUri { return this; },
+    toString: function(this: IMockUri, _skipEncoding?: boolean): string { return `file://${this.path}`; },
+  }),
 };
 
 export const commands = {
