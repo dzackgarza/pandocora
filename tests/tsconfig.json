@@ -13,5 +13,9 @@
     "**/*.ts", // All ts files in /tests directory and subdirectories
     "../src/**/*.ts" // For type checking against actual source
   ],
-  "exclude": []
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out"
+  ]
 }
