@@ -33,6 +33,7 @@ The `Makefile` provides more granular control over the testing process.
 -   `make test-file file=<path_to_test_file.test.ts>`: Runs a specific test file.
     *Example:* `make test-file file=tests/tier0/compilation.test.ts`
 -   `make typecheck-tests`: Runs TypeScript type checking on all files within the `tests/` directory.
+-   `make test-summary`: Prints a summary of the number of test files in each tier. This is also available via `npm run test:summary`.
 
 ## Adding New Tests
 

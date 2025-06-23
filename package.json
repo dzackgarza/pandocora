@@ -26,7 +26,8 @@
     "lint:fix": "eslint --fix \"src/**/*.ts\" \"tests/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
-    "test": "make test"
+    "test": "make test",
+    "test:summary": "make test-summary"
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
