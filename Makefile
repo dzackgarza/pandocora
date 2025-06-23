@@ -129,3 +129,20 @@ typecheck-tests:
 		exit 1; \
 	fi; \
 	echo "All test files type checked successfully via tests/tsconfig.json."
+
+# --- Test Summary ---
+.PHONY: test-summary
+
+# Summarize tests by tier
+test-summary:
+	@echo "Summarizing tests by tier:"
+	@for tier_dir in $(shell find tests -maxdepth 1 -type d -name 'tier*' | sort); do \
+		tier_name=$$(basename $$tier_dir); \
+		num_tests=$$(find $$tier_dir -type f -name '*.test.ts' | wc -l | tr -d ' '); \
+		if [ $$num_tests -gt 0 ]; then \
+			echo "  $${tier_name}: $$num_tests test file(s)"; \
+		else \
+			echo "  $${tier_name}: No test files found"; \
+		fi; \
+	done
+	@echo "For detailed test execution, run 'make test' or 'npm test'."
