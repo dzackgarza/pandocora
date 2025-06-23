@@ -19,7 +19,7 @@ describe('Tier 1: No console.log in src/ files', () => {
         violations.push(...findViolations(filePath));
       } else if (filePath.endsWith('.ts')) {
         const content = fs.readFileSync(filePath, 'utf-8');
-        const lines = content.split('\\n');
+        const lines = content.split('\n'); 
         lines.forEach((line, index) => {
           if (forbiddenPattern.test(line)) {
             // Check if it's commented out
